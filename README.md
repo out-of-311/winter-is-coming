@@ -72,6 +72,14 @@
 ## Tools
 
 
+## Meet Rules
+
+- Scrum day: the day of start of week
+  Explain what you learned and what you will learn
+- Main Study: explain what you learned
+- Memorize: write in markdown that you can not explain or hesitate to explain
+
+
 ## Role of part
 
 
