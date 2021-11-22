@@ -81,7 +81,7 @@
 
 
 ## Role of part
-Lee SeungJun | Kang Myunghoon | Koo Sunmin
+Lee SeungJun | Kang Myunghoon | Koo Seonmin
 ---------|----------|---------
  ![](https://avatars.githubusercontent.com/u/15345023?v=4) | ![](assets/avatar2.png) | ![](assets/avatar3.jpeg)
  PM | write a role you want| write a role you want
