@@ -7,10 +7,10 @@
 ```json
 {
     
-    "setting" : 
+    "setting" :
 }
 ```
 
-안녕하세요 **구선민**입니다.
+VScode 깃허브 연동 test1
 
 > 안녕하세요
