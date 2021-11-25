@@ -7,7 +7,7 @@
 ```json
 {
     
-    "setting" :
+    "setting" : "hi"
 }
 ```
 
