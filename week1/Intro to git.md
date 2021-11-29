@@ -6,9 +6,9 @@
 
 본 문서는 git을 처음 시작할 때 겪는 어려움과 그 해결과정을 공유하고자 작성되었습니다. 구성은 다음과 같습니다.
 
-1) [git pull origin master 코드 의미 이해](#git-pull-origin-master-코드-의미 이해)
+1) [git pull origin master 코드 의미 이해](#git-pull-origin-master-코드-의미-이해)
 2) [git branch 생성](#git-branch-생성)
-   1) [git branch, git checkout](#git-branch, git-checkout)
+   1) [git branch, git checkout](#git-branch,-git-checkout)
    2) [branch push 과정에서의 이슈 & 해결 과정](#branch-push-과정에서의-이슈-&-해결-과정)
    3) [pull request 과정에서의 이슈 & 해결 과정](#pull-request-과정에서의-이슈-&-해결-과정)
 
