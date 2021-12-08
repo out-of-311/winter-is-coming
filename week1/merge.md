@@ -3,18 +3,20 @@
 Out of 311의 첫번째 스터디 주제는 **git** 사용하기 입니다. 본 포스팅은 **git**을 처음 시작할 때 겪는 어려움과 그 해결과정을 공유하고자 작성되었습니다. 구성은 다음과 같습니다.
 
 1) [git pull origin master 코드 의미 이해](#git-pull-origin-master-코드-의미-이해)
-2) [git branch 생성](#git-branch-생성)
+2) [git branch 생성 및 push](#git-branch-생성-및-push)
    1) [git branch, git checkout](#git-branch,-git-checkout)
-   2) [branch push 과정에서의 이슈 & 해결 과정](#branch-push-과정에서의-이슈-&-해결-과정)
-   3) [pull request 과정에서의 이슈 & 해결 과정](#pull-request-과정에서의-이슈-&-해결-과정)
+   2) [pull request 과정에서의 이슈 & 해결 과정](#pull-request-과정에서의-이슈-&-해결-과정)
+   3) [branch push 과정에서의 이슈 & 해결 과정](#branch-push-과정에서의-이슈-&-해결-과정)
 
 
 
 ## 자주 사용하는 Git 명령어 이해
 
-지난 시간의 내용을 recap한 뒤 과제를 수행하기 위해 branch를 생성하고자 하였습니다.
+지난 시간의 내용을 recap한 뒤 과제를 수행하기 위해 branch를 생성하고자 하였습니다. 과제의 내용은 다음과 같습니다.
 
-두괄식으로 개요 설명하기
+>  본인 브랜치를 만들어서, README에 본인 이름적고, 역할 써오기
+
+
 
 ### git pull origin master 코드 의미 이해
 
@@ -26,60 +28,106 @@ Out of 311의 첫번째 스터디 주제는 **git** 사용하기 입니다. 본 
 
 - `origin` : 원격 저장소의 이름.
 
-  따라서, `git pull origin`은 우리가 사전에 clone한 repository의 full name을 대신하는 이름(alias) 이라고 할 수 있음.
+  따라서, `git pull origin`은 우리가 사전에 clone한 repository의 full name을 대신하는 이름(alias) 이라고 할 수 있습니다.
 
-- `master` : branch 이름.
+- `master` : branch 이름을 의미합니다. master는 어떤 reopository에서 가장 중심이 되는 branch의 이름입니다.
 
-다음과 같이 사용해 볼 수 있습니다.
-
-```bash
-git push orign master
-# orgin:
-# master:
-```
+따라서 우리는 `git pull origin {query}`가 작동할 수 있도록 `{query}`에 들어갈 branch를 생성해야 함을 알 수 있습니다.
 
 
 
-### git branch 생성
+### git branch 생성 및 push
 
-git branch, git checkout
+#### git branch, git checkout
+
+자신의 branch를 생성하기 위한 작업을 진행하였습니다. 
+
+먼저 git bash terminal에서 현재 작업중인 branch의 이름을 확인합니다. 현재 HEAD가 가리키는 branch 이름을 알고 싶을 때 아래의 명령어를 사용합니다.
 
 ```bash
 git branch
+* master
 ```
 
-현재 속한 branch 이름을 알고 싶을 때 위의 명령어를 사용
+이와 같이 명령어를 사용하면 `* master` 출력물이 나옵니다. 이는 HEAD가 현재 master  branch에 위치하고 있음을 알려줍니다.
+
+이제 자신의 branch를 만들도록 하겠습니다. 명훈은 branch의 이름을 mhk로 설정하였습니다.
 
 ``` bash
 git branch mhk
+* master
+  mhk
+```
+
+출력물을 보면 mhk라는 branch가 새로 생긴것을 알 수 있습니다. 하지만 아직 우리의 terminal은 master를 가리키고 있음을 알 수 있습니다. 따라서 HEAD가 바라보고 있는 branch를 변경해야 합니다.
+
+```bash
 git checkout mhk
+  master
+* mhk
+```
+
+`git checkout {query}` 명령어를 사용하면 `{query}`에 해당하는 branch로 HEAD가 이동하게 됩니다. 우리는 비로소 주어진 과제에서 **'' 본인 브랜치를 만들어서 ''** 부분을 완료하게 되었습니다.
+
+한편 branch를 생성하고 생성한 branch로 바로 이동하고자 할 때는 아래의 명령어를 입력하시면 됩니다.
+
+```bash
 git checkout -b mhk
 ```
 
-나의 branch를 만들고 싶으면 위의 명령어를 사용그런데 branch를 만든다고 해서 바로 그 branch로 생성이 되는 것이 아님. 따라서 checkout으로 해당 branch로 이동해야 함
+이렇게 원하고자 하는 branch를 만들어봤습니다. 그러나 지금까지의 모든 작업은 local에서 진행되었습니다. 즉, remote repository에는 새로운 branch가 만들어지지 않았겠죠. 이제 remote repository에도 등록될 수 있도록 `git push`를 해봅시다.
 
-checkout 뒤에 -b를 붙이고 branch 이름을 명명하면 해당 branch를 생성하고 그 branch로 바로 이동함
+
+
+#### pull request 과정에서의 이슈 & 해결 과정
+
+우리에게는 아직 **"README에 본인 이름적고, 역할 써오기"** 과제가 남아있습니다. 수정해야 하는 README.md 파일이 존재해야 하므로 master branch에서 `pull`을 먼저 하겠습니다. 그런데 다음과 같은 error가 발생하였습니다.
+
+```bash
+git pull origin master
+From https://github.com/out-of-311/winter-nlp-study
+ * branch            master     -> FETCH_HEAD
+CONFLICT (add/add): Merge conflict in test.md
+Auto-merging test.md
+Automatic merge failed; fix conflicts and then commit the result.
+```
+
+현재 local에 있는 test.md 파일과 master branch에 있는 test.md 파일과 달라서 충돌이 발생했다고 합니다. 따라서 해당 파일을 적절히 수정하고 commit 한 다음에 pull을 진행해보겠습니다.
+
+```bash
+<<<<<<< HEAD
+충돌유발- new_branch
+=======
+충돌유발- master
+>>>>>>> master
+```
+
+merge된 test.md 파일은 다음과 같이 작성되어 있습니다. 어떤 자료만을 남길지는 본인의 선택입니다. 저는 local에 있었던 제 파일만을 남기고 싶으므로 master에서 해당한 모든 부분을 지웠습니다. 이후 git commit을 진행하였습니다.
+
+```bash
+git add test.md
+git commit -m {query}
+```
+
+이제 우리는 master에 있는 README.md 파일을 정상적으로 받을 수 있게 되었습니다. 
+
+
 
 #### branch push 과정에서의 이슈 & 해결 과정
 
-- remote repository인 origin에 mhk branch를 등록시키기.
+READEME.md 파일을 수정했다고 가정하고 mhk branch를 remote repository로 `push` 해봅시다.
 
-  ```bash
-  git push
+```bash
+git push
+fatal: The current branch mhk has no upstream branch.
+To push the current branch and set the remote as upstream, use
 
-  kang_lp@DESKTOP-IH8F9RR MINGW64 ~/Desktop/out-of-311/winter-nlp-study (mhk)
-  $ git push
-  fatal: The current branch mhk has no upstream branch.
-  To push the current branch and set the remote as upstream, use
+    git push --set-upstream origin mhk
+```
 
-      git push --set-upstream origin mhk
-  ```
+그런데 `git push`를 하게 되면 위와 같은 error message가 뜨면서 명령어가 정상작동하지 않습니다. error 구문을 보니 현재 로컬에 존재하는 mhk branch가 upstream branch로 존재하지 않다고 말하고 있습니다. 
 
-- git push를 처음에 하면 local repository가 remote repository에 연결되지 않은 상태이기 때문에 위와 같은 에러 메세지가 발생함
-
-- 이에 대한 이유는 다음과 같음
-
-  [git - What does '--set-upstream' do? - Stack Overflow](https://stackoverflow.com/questions/18031946/what-does-set-upstream-do)
+한편 error 구문에서 `git push --set-upstream origin mhk` 명령어를 사용해야 함을 추천해주고 있습니다. 왜 이 명령어가 우선적으로 수행되어야 하는지는 다음의 내용이 잘 설명해주고 있습니다.
 
 
 > When you push to a remote and you use the `--set-upstream` flag git sets the branch you are pushing to as the remote tracking branch of the branch you are pushing.
@@ -88,63 +136,21 @@ checkout 뒤에 -b를 붙이고 branch 이름을 명명하면 해당 branch를 �
 >
 > You could achieve the same thing with `git branch --set-upstream-to` or `git checkout --track`. See the git help pages on [tracking branches](http://git-scm.com/book/en/Git-Branching-Remote-Branches#Tracking-Branches) for more information.
 
-- 즉 local repository와 remote repository를 동기화시키기겠다는 의미
+이는 현재 local에 있는 mhk를 remote repository의 mhk와 동기화시키기겠다는 의미입니다. 해당 명령어를 실행해줍시다.
 
-- 그런데 또 다른 error가 발생
+```bash
+git push --set-upstream origin mhk
+remote: Permission to out-of-311/winter-nlp-study.git denied to Metalchaos8527.
+fatal: unable to access 'https://github.com/out-of-311/winter-nlp-study.git/': The requested URL returned error: 403
+```
 
-  ```
-  kang_lp@DESKTOP-IH8F9RR MINGW64 ~/Desktop/out-of-311/winter-nlp-study (mhk)
-  $ git push --set-upstream origin mhk
-  remote: Permission to out-of-311/winter-nlp-study.git denied to Metalchaos8527.
-  fatal: unable to access 'https://github.com/out-of-311/winter-nlp-study.git/': The requested URL returned error: 403
-  ```
+한편 저에게는 위와 같은 에러가 발생하였습니다. 해당 에러의 원인은 다양했지만 저의 경우에는 remote repository에서 제게 쓰기 및 읽기를 할 수 있는 '관리자' 권한을 주지 않아서 발생한 문제였습니다. reposiotry의 관리자가 저에게 권한을 부여한 뒤로는 코드가 정상 작동 하였습니다.
 
-  - 이 부분은 repository의 개설자가 권한을 안줘서 발생한 문제. 해결 됨
-  - branch 생성 이후 git push --set-upstream origin mhk 하면 정상적으로 branch가 생성됨
 
-- test.md 파일 변경하기
 
-  - 기존에 생성한 test.md 파일을 변경하기. 파일을 수정하기 위해서는 다음의 과정을 거쳐야함
-    - git add test.md
-    - git commit -m "~"
-    - git push
+![image-20211208172028477](https://s2.loli.net/2021/12/08/RNcwEYUjeP2fLs8.png)
 
-- pull request 과정에서의 이슈 & 해결 과정
-
-  - readme.md 파일을 변경하려면 이전에 master 브랜치에 있는 파일들을 받아서 작업을 수행해야 함
-
-  - git pull origin master 명령어를 실행
-
-    - 다음과 같은  message가 뜸
-
-      ```
-      kang_lp@DESKTOP-IH8F9RR MINGW64 ~/Desktop/out-of-311/winter-nlp-study (mhk)
-      $ git pull origin master
-      From https://github.com/out-of-311/winter-nlp-study
-       * branch            master     -> FETCH_HEAD
-      CONFLICT (add/add): Merge conflict in test.md
-      Auto-merging test.md
-      Automatic merge failed; fix conflicts and then commit the result.
-      ```
-
-    - 내가 변경한 test.md에서 conflict가 일어남. 즉  origin에서 받은 test.md와 내 로컬에 있는 test.md의 상태가 달라서 일어나는 문제. 내 branch에 있는 test로 유지하고 싶으므로 현재 파일로 merge할 수 있는 방법을 알아야 함
-
-    - 받은 test.md 파일이 다음과 같이 변함.
-
-      ```
-      <<<<<<< HEAD
-      내 작성 내용
-
-      승준 작성 내용
-      ```
-
-    - terminal에 merge를 중단하고 싶으면 git merge --abort를 사용하라고 떠서 merge를 중단. pull 이전의 상태로 되돌아옴
-
-    - 다만 test.md 파일이 pull 하고 변경된 것을 다시 되돌렸기 때문에 변경이 필요하다고 git status에 떠서 add후 commit 하였음
-
-    - 다시 pull origin master 하였으나 동일한 문제 발생.
-
-    - vscode에서 이전 부분 head와 이후 부분이 구분자로 구분되어 있어서 이후 부분을 모두 삭제하고 add, commit 하여서 정상작동하게 함
+이렇게 저만의 branch를 만들고 remote repository에 push하는 과정까지 거쳐서 과제를 최종 완료할 수 있었습니다!
 
 
 
@@ -161,12 +167,6 @@ checkout 뒤에 -b를 붙이고 branch 이름을 명명하면 해당 branch를 �
 이러한 브랜치에는 HEAD(branch head)라는 것이 있는데 이는 한개의 브랜치 내에서 가장 최근에 커밋이 된 reference이다. 예를 들면 branch apple에 3개의 commit이 있는데 이중에 가장 최근에 추가된 커밋이 HEAD가 된다.
 - **master** : master 브랜치는 복사해온 저장소 내의 HEAD의 복사본이다.
 - **origin** : origin 은 단지 git가 복사해 온 저장소를 가리키기 위해 기본적으로 사용하는 이름
-
-
-
-## 오류과정 해결
-
---> 오류 발생한거 따로 두괄식으로 -->
 
 
 
@@ -364,6 +364,8 @@ git remote -v
 [2] 깃 id, email 설정.https://www.lainyzine.com/ko/article/how-to-set-git-repository-username-and-email/
 
 [갓대희의 작은공간 :: [Git (9)\] Git Branch(1) - 기초(Branch 생성 및 사용) (tistory.com)](https://goddaehee.tistory.com/274)
+
+[git - What does '--set-upstream' do? - Stack Overflow](https://stackoverflow.com/questions/18031946/what-does-set-upstream-do)
 
 [What is "origin" in Git? - Stack Overflow](https://stackoverflow.com/questions/9529497/what-is-origin-in-git)
 
