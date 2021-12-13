@@ -303,31 +303,31 @@ git remote -v
 
 > [+] 버튼 선택
 
-![스크린샷 2021-11-25 오후 2.26.06](/Users/kooseonmin/Library/Application Support/typora-user-images/스크린샷 2021-11-25 오후 2.26.06.png)
+![스크린샷 2021-11-25 오후 2.26.06](https://s2.loli.net/2021/12/13/WPZNJAVMvGtsbTi.png)
 
 
 
 2. 체크 버튼 선택
 
-![스크린샷 2021-11-25 오후 2.29.34](/Users/kooseonmin/Library/Application Support/typora-user-images/스크린샷 2021-11-25 오후 2.29.34.png)
+![스크린샷 2021-11-25 오후 2.29.34](https://s2.loli.net/2021/12/13/6wNUGto3jZygxMF.png)
 
 
 
 3. 커밋 메시지 입력 후 엔터
 
-![스크린샷 2021-11-25 오후 2.31.08](/Users/kooseonmin/Library/Application Support/typora-user-images/스크린샷 2021-11-25 오후 2.31.08.png)
+![스크린샷 2021-11-25 오후 2.31.08](https://s2.loli.net/2021/12/13/R8zs6IfiU2mWyCe.png)
 
 
 
 4. 변경 내용 동기화 버튼 선택
 
-![스크린샷 2021-11-25 오후 2.33.49](/Users/kooseonmin/Library/Application Support/typora-user-images/스크린샷 2021-11-25 오후 2.33.49.png)
+![스크린샷 2021-11-25 오후 2.33.49](https://s2.loli.net/2021/12/13/uzUSXhAKJP42mDG.png)
 
 
 
 5. 확인 선택하면 완료!
 
-![스크린샷 2021-11-25 오후 2.34.32](/Users/kooseonmin/Library/Application Support/typora-user-images/스크린샷 2021-11-25 오후 2.34.32.png)
+![스크린샷 2021-11-25 오후 2.34.32](https://s2.loli.net/2021/12/13/iJtQpv6SVPxf3Uq.png)
 
 
 
