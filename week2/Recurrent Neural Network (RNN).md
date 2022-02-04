@@ -86,6 +86,18 @@ DNN의 경우 파라미터가 모두 독립적 vs RNN의 경우 모두 공유
 
 
 
+LSTM Cell은 long-term memory( ***c*** ) 와 short-term memory( ***h*** ) 를 계산
+
+input x 와 h를 이용하영 long-term memory 업데이트
+
+업데이트 할 때 some features of *c* 는  forget gate에 의해 clear, some features *i*  는 gate를 통과하여 add
+
+> Note that the cell doesn't look at long term memory *c* when doing the update.
+
+
+
+
+
 
 
 ---
@@ -98,5 +110,5 @@ DNN의 경우 파라미터가 모두 독립적 vs RNN의 경우 모두 공유
 
 [3] [RNN:: LSTM 톺아보기](https://wegonnamakeit.tistory.com/7)
 
-
+[4] [annotated_deep_learning_paper_implementations-LSTM](https://nn.labml.ai/lstm/index.html)
 
