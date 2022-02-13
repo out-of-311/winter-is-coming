@@ -9,7 +9,7 @@
 <p align="center">
     <img alt="python-3.7.7" src="https://img.shields.io/badge/NLP--blue"/>
     <img alt="django-2.2.5" src="https://img.shields.io/badge/Machine Learning--yellow"/>
-    <img alt="chromedriver-79.0.3945" src="https://img.shields.io/badge/Math in AI--blueviolet"/>
+    <img alt="chromedriver-79.0.3945" src="https://img.shields.io/badge/Math qin AI--blueviolet"/>
     <img alt="GitHub" src="https://img.shields.io/github/license/metterian/redbttn-seoul-studio"/>
 </p>
 
